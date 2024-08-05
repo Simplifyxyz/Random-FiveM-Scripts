@@ -1,0 +1,9 @@
+# /Heal Script
+
+RegisterCommand('heal', function(source, args, rawCommand)
+    local playerPed = GetPlayerPed(-1)
+    SetEntityHealth(playerPed, 200)
+    TriggerEvent('chat:addMessage', {
+        args = {'^1SYSTEM', 'You have been healed!'}
+    })
+end, false)
