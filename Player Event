@@ -1,0 +1,19 @@
+# Just shows when someone is dropped from the server or is connect 
+
+AddEventHandler('playerConnecting', function(name, setKickReason, deferrals)
+    deferrals.defer()
+
+    local player = source
+    local identifier = GetPlayerIdentifier(player)
+
+    deferrals.done()
+end)
+
+AddEventHandler('playerDropped', function(reason)
+    local player = source
+    local name = GetPlayerName(player)
+
+    -- Handle player disconnection, such as saving data or notifying others
+
+    print(name .. ' has left the server: ' .. reason)
+end)
